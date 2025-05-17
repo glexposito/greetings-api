@@ -63,11 +63,11 @@ Below are screenshots showing New Relic integration:
 
 ### Spans
 
-![Screenshot From 2025-05-17 20-09-59](https://github.com/user-attachments/assets/19042d7c-aed4-4270-9261-9046627e221a)
+![Spans](https://github.com/user-attachments/assets/19042d7c-aed4-4270-9261-9046627e221a)
 
 
 ### Transactions
 
-![Screenshot From 2025-05-17 19-42-57](https://github.com/user-attachments/assets/cf55329f-46f0-4883-b5f6-eecdad029816)
+![Transactions](https://github.com/user-attachments/assets/cf55329f-46f0-4883-b5f6-eecdad029816)
 
 
