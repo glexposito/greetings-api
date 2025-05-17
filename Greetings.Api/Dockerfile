@@ -21,8 +21,9 @@ WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Greetings.Api.dll"]
 
-# Podman requires mounting the volume with something like:
-#   -v <host-output-folder>:/app/bin/Debug/net9.0
-# to avoid SELinux permission issues when accessing runtime files.
-# For example:
-#   -v /home/guille/Dev/Greetings/Greetings.Api/bin/Debug/net9.0:/app/bin/Debug/net9.0
+# Note: When using Podman in Linux for development or debugging, you may need to mount the volume with:
+#   -v /path/to/your/output-folder:/app/bin/Debug/net9.0
+# This avoids SELinux permission issues when accessing runtime files.
+# Example for development:
+#   -v /path/to/your/project/bin/Debug/net9.0:/app/bin/Debug/net9.0
+# This is not required for production deployments.
