@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greetings.Api", "Greetings.Api\Greetings.Api.csproj", "{E7815F99-883B-4FF4-BA35-04E1A0B9302A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greetings.Tests", "Greetings.Tests\Greetings.Tests.csproj", "{33949F90-19D4-4F66-8244-1CB8F43C6995}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E7815F99-883B-4FF4-BA35-04E1A0B9302A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7815F99-883B-4FF4-BA35-04E1A0B9302A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7815F99-883B-4FF4-BA35-04E1A0B9302A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7815F99-883B-4FF4-BA35-04E1A0B9302A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33949F90-19D4-4F66-8244-1CB8F43C6995}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33949F90-19D4-4F66-8244-1CB8F43C6995}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33949F90-19D4-4F66-8244-1CB8F43C6995}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33949F90-19D4-4F66-8244-1CB8F43C6995}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
