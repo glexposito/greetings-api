@@ -11,7 +11,7 @@ public class GreetingsControllerTests(WebApplicationFactoryFixture fixture)
     [Fact]
     public async Task Hello_ReturnsHello()
     {
-        var response = await _client.GetAsync("/Greetings/Hello", TestContext.Current.CancellationToken);
+        var response = await _client.GetAsync("/greetings/hello", TestContext.Current.CancellationToken);
         response.StatusCode.ShouldBe(HttpStatusCode.OK);
 
         var content = await response.Content.ReadAsStringAsync(TestContext.Current.CancellationToken);
@@ -21,7 +21,7 @@ public class GreetingsControllerTests(WebApplicationFactoryFixture fixture)
     [Fact]
     public async Task Bye_ReturnsBye()
     {
-        var response = await _client.GetAsync("/Greetings/Bye", TestContext.Current.CancellationToken);
+        var response = await _client.GetAsync("/greetings/bye", TestContext.Current.CancellationToken);
         response.StatusCode.ShouldBe(HttpStatusCode.OK);
 
         var content = await response.Content.ReadAsStringAsync(TestContext.Current.CancellationToken);
