@@ -2,6 +2,8 @@
 
 A minimal ASP.NET Core Web API that provides simple greeting endpoints and demonstrates OpenTelemetry integration.
 
+This is a PoC for sending metrics and traces to New Relic using OpenTelemetry.
+
 ## Features
 
 - REST API with endpoints for "Hello" and "Bye" greetings
@@ -69,5 +71,3 @@ Below are screenshots showing New Relic integration:
 ### Transactions
 
 ![Transactions](https://github.com/user-attachments/assets/cf55329f-46f0-4883-b5f6-eecdad029816)
-
-
