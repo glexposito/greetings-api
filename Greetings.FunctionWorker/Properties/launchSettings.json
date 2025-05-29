@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "Greetings_FunctionWorker": {
+      "commandName": "Project",
+      "commandLineArgs": "--port 7259",
+      "launchBrowser": false
+    }
+  }
+}

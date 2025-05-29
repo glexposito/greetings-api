@@ -1,0 +1,59 @@
+services:
+  greetings-api:
+    container_name: greetings-api
+    build:
+      context: .
+      dockerfile: Greetings.Api/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+        
+  emulator:
+    container_name: "servicebus-emulator"
+    image: mcr.microsoft.com/azure-messaging/servicebus-emulator:latest
+    pull_policy: always
+    volumes:
+      - ./ConfigFiles:/ServiceBus_Emulator/ConfigFiles:ro,z
+    ports:
+      - "5672:5672"
+      - "5300:5300"
+    environment:
+      SQL_SERVER: sqledge
+      MSSQL_SA_PASSWORD: "${MSSQL_SA_PASSWORD}"  # Password should be same as what is set for SQL Edge  
+      ACCEPT_EULA: ${ACCEPT_EULA}
+      # SQL_WAIT_INTERVAL: ${SQL_WAIT_INTERVAL} # Optional: Time in seconds to wait for SQL to be ready (default is 15 seconds)
+    depends_on:
+      - sqledge
+    networks:
+      sb-emulator:
+        aliases:
+          - "sb-emulator"
+
+  sqledge:
+    container_name: "sqledge"
+    image: "mcr.microsoft.com/azure-sql-edge:latest"
+    networks:
+      sb-emulator:
+        aliases:
+          - "sqledge"
+    environment:
+      ACCEPT_EULA: ${ACCEPT_EULA}
+      MSSQL_SA_PASSWORD: "${MSSQL_SA_PASSWORD}" # To be filled by user as per policy : https://learn.microsoft.com/en-us/sql/relational-databases/security/strong-passwords?view=sql-server-linux-ver16 
+
+  azure-function:
+    container_name: greetings-function-worker
+    build:
+      context: .
+      dockerfile: Greetings.FunctionWorker/Dockerfile
+    ports:
+      - "7081:80"
+    environment:
+      - AzureWebJobsStorage=UseDevelopmentStorage=true
+      - FUNCTIONS_WORKER_RUNTIME=dotnet-isolated
+      - FUNCTIONS_WORKER_HOST_ENDPOINT=127.0.0.1:80
+    #volumes:
+      #- ./Greetings.FunctionWorker/local.settings.json:/home/site/wwwroot/local.settings.json:ro,z
+
+networks:
+  sb-emulator:
